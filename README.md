@@ -27,4 +27,4 @@ Per Course - You can select from a list of courses that the logged in user has t
 
 You can delete a single file on any of the sub tabs but also alss files in that course or that upload.
 
-# Delvon Forrester, 20 September 2023
+Delvon Forrester, 20 September 2023
