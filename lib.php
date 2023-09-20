@@ -24,6 +24,7 @@
  */
 
 /**
+ * All link to the navigation of the profile page
  * @param \core_user\output\myprofile\tree $tree
  * @param $user
  * @param $iscurrentuser
@@ -36,9 +37,8 @@ function local_cwk_add_files_mgr_myprofile_navigation(core_user\output\myprofile
         return false;
     }
 
-    $context = context_system::instance();
-    if(!has_capability('local/cwk_add_files_mgr:addfiles', $context) &&
-            !has_capability('local/cwk_add_files_mgr:deletefiles', $context)){
+    if(!get_user_capability_in_any_course('local/cwk_add_files_mgr:addfiles', $user->id) &&
+            !get_user_capability_in_any_course('local/cwk_add_files_mgr:deletefiles', $user->id)){
         return false;
     }
 
@@ -58,6 +58,12 @@ function local_cwk_add_files_mgr_myprofile_navigation(core_user\output\myprofile
     return true;
 }
 
+/**
+ * Get the context, course and filename from an uploaded file.
+ * 
+ * @param $filename str The name of the uploaded file
+ * @return mixed
+ */
 function get_context_and_course_from_filename($filename) {
     global $DB;
     $ex = explode('-', $filename);
@@ -81,4 +87,21 @@ function get_context_and_course_from_filename($filename) {
         }
     }
     return [];
+}
+
+/**
+ * Check if user has the capability in any course at all.
+ * 
+ * @param $cap str Capability
+ * @param $userid
+ * @return bool
+ */
+function get_user_capability_in_any_course($cap, $userid) {
+    global $DB;
+
+    if (is_siteadmin()) {
+        return true;
+    }
+    return $DB->get_records_sql("select 1 from {role_assignments} where userid = ? and roleid in
+            (select roleid from {role_capabilities} where capability = ?) limit 1", [$userid, $cap]);
 }

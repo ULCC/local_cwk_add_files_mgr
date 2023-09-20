@@ -31,12 +31,16 @@ global $PAGE, $DB, $USER, $CFG, $OUTPUT;
 
 $context = context_system::instance();
 require_login();
-require_capability('local/cwk_add_files_mgr:addfiles', $context);
+if (!get_user_capability_in_any_course('local/cwk_add_files_mgr:addfiles', $USER->id)) {
+    $profileurl = new moodle_url('/user/profile.php');
+    redirect($profileurl, 'No access to this page!',
+            null, \core\output\notification::NOTIFY_ERROR);
+}
 
 $tab = optional_param('tab', '', PARAM_TEXT);
 $subtab = optional_param('subtab', '', PARAM_TEXT);
 $tabs = ['add'];
-if (has_capability('local/cwk_add_files_mgr:deletefiles', $context)) {
+if (get_user_capability_in_any_course('local/cwk_add_files_mgr:deletefiles', $USER->id)) {
     $tabs[] = 'delete';
 }
 
