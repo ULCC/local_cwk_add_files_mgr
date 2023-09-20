@@ -49,13 +49,6 @@ class cwk_add_files_form extends moodleform
         $this->add_action_buttons();
     }
 
-    /*function data_preprocessing(&$default_values) {
-        $draftitemid = file_get_submitted_draft_itemid('files');
-        $context = context_system::instance();
-        file_prepare_draft_area($draftitemid, $context->id, 'local_cwk_add_files_mgr', 'introattachment', 0, array('subdirs'=>0));
-        $default_values['files'] = $draftitemid;
-    }*/
-
     function validation($data, $files) {
         global $USER;
 
