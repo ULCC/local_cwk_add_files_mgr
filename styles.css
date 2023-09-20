@@ -1,0 +1,97 @@
+/* 
+    Created on : 13 Sept 2023, 13:31:52
+    Author     : delvo
+*/
+
+.path-local-cwk_add_files_mgr-admin table.cwk-dash {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-dash tr {
+    border: 1px solid #eee;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-dash th {
+    background-color: #ccc;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-dash th, .cwk-dash td {
+  padding: 5px 20px;
+  border-right: solid 1px #ddd; 
+  border-left: solid 1px #ddd;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-dash tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.path-local-cwk_add_files_mgr-admin button.active {
+    background: #aaa;
+}
+
+.path-local-cwk_add_files_mgr-admin button.active a {
+    color: #fff;
+}
+
+.path-local-cwk_add_files_mgr-admin a:link,
+.path-local-cwk_add_files_mgr-admin a:visited,
+.path-local-cwk_add_files_mgr-admin a:hover,
+.path-local-cwk_add_files_mgr-admin a:active {
+    text-decoration: none;
+}
+
+.path-local-cwk_add_files_mgr-admin a.cta {
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 15%;
+    display: inline-block;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs {
+    list-style: none;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    margin-left: 20px;
+}
+
+.path-local-cwk_add_files_mgr-admin .mw-1500 {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li {
+    margin-bottom: -1px;
+    position: relative;
+    display: block;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li>a {
+    margin-right: 0;
+    padding: 5px 20px;
+    border-radius: 0;
+    border-color: #ddd;
+    border-right-color: transparent;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a, 
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a:hover, 
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a:focus {
+    background-color: #fff;
+    border-top-color: #767676;
+    box-shadow: 0 -2px #767676,-3px 0 rgba(0,0,0,.03);
+}
+
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a, 
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a:hover, 
+.path-local-cwk_add_files_mgr-admin .cwk-nav-tabs>li.active>a:focus {
+    color: #767676;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}

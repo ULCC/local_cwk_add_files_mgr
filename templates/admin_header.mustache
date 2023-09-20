@@ -1,0 +1,17 @@
+<div class="mb-3 mw-1500">
+    <div>
+        <ul class="nav cwk-nav-tabs">
+            {{#tabs}}
+                <li{{#active}} class="active"{{/active}}><a href="{{url}}">{{title}}</a></li>
+            {{/tabs}}
+        </ul>
+    </div>
+    {{#siteadmin}}
+    <div>
+        <a href="{{config.wwwroot}}/admin/settings.php?section=local_cwk_add_files_mgr" class="pull-right cta">
+            <span aria-hidden="true" title="{{#str}}config, local_cwk_add_files_mgr{{/str}}"></span> &#9881;  
+            {{#str}}config, local_cwk_add_files_mgr{{/str}}
+        </a>
+    </div>
+    {{/siteadmin}}
+</div>

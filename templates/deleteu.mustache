@@ -1,0 +1,57 @@
+{{>local_cwk_add_files_mgr/admin_header}}
+<div id="{{pageid}}" class="mw-1500">
+    <div class="m-3 pl-50 pr-50">
+        <!--<h4>{{#str}}delete_tab, local_cwk_add_files_mgr{{/str}}</h4>-->
+        <div class="mt-3 mb-3">{{#str}}deleteu_desc, local_cwk_add_files_mgr{{/str}}</div>
+        <div>
+            <ul class="nav cwk-nav-tabs">
+                <li class="active"><a href="{{config.wwwroot}}/local/cwk_add_files_mgr/admin/index.php?tab=delete&subtab=deleteu">
+                    {{#str}}deleteu, local_cwk_add_files_mgr{{/str}}</a></li>
+                <li><a href="{{config.wwwroot}}/local/cwk_add_files_mgr/admin/index.php?tab=delete&subtab=deletec">
+                    {{#str}}deletec, local_cwk_add_files_mgr{{/str}}</a></li>
+            </ul>
+        </div>
+        <!--<div>{{#str}}deleteu_desc, local_cwk_add_files_mgr{{/str}}</div>-->
+        {{>local_cwk_add_files_mgr/module_form}}
+        {{#allmods}}
+                UPLOAD: {{uploadtext}}
+                {{#anyfiles}}
+                <span class="pull-right">
+                    <form class ="chec" id="cwk-del-upload" title="Click to delete" action="{{config.wwwroot}}/local/cwk_add_files_mgr/admin/index.php" method="post">
+                        <input type="submit" class="btn btn-danger" value="Delete all files in this upload">
+                        <input type="hidden" name="upid" value="{{uploadid}}">
+                        <input type="hidden" name="cseid" value="{{uploadid}}">
+                    </form>
+                </span>
+                {{/anyfiles}}
+                <table class="cwk-dash mt-3">
+                    <thead>
+                        {{#headers}}
+                            <th class="header c{{index}}{{alignment}}">{{{label}}}</th>
+                        {{/headers}}
+                    </thead>
+                    <tbody>            
+                    {{#mods}}
+                        <tr id="cwk-{{modid}}">                            
+                            <td class="cell c1">{{modid}}</td>
+                            <td class="cell c2"><a href="{{cwkurl}}" target="_blank" title="Click to view">{{modname}}</a></td>
+                            <td class="cell c4"><a href="{{courseurl}}" target="_blank" title="Click to view">{{course}}</a></td>
+                            <td class="cell c5"><a href="{{fileurl}}" target="_blank" title="Click to view">{{filename}}</a></td>
+                            <td class="cell c6">
+                                <form class ="chec" id="cwk{{modid}}" title="Click to delete" action="{{config.wwwroot}}/local/cwk_add_files_mgr/admin/index.php" method="post">
+                                    <div><input type="submit" value="&#x2716;"></div>
+                                    <input type="hidden" name="fileid" value="{{fileid}}">
+                                </form>
+                            </td>
+                        </tr>
+                    {{/mods}}
+                    {{^mods}}
+                        <tr><td colspan="5">{{#str}}nofiles, local_cwk_add_files_mgr{{/str}}</td></tr>
+                    {{/mods}}
+                </tbody>
+            </table>
+        {{/allmods}}
+        {{^allmods}}
+        {{/allmods}}
+    </div>
+</div>

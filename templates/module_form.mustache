@@ -1,0 +1,20 @@
+<form style="border: 1px solid lightgrey; margin-bottom:25px;" class="p-3 mt-3 mb-3" action="{{config.wwwroot}}/local/cwk_add_files_mgr/admin/" method="post">
+    <fieldset>
+        {{#coursename}}
+            <label for="csid">{{#str}}coursename, local_cwk_add_files_mgr{{/str}}</label>
+        {{/coursename}}
+        {{^coursename}}
+            <label for="csid">{{#str}}uploadtime, local_cwk_add_files_mgr{{/str}}</label>
+        {{/coursename}}
+        <select id="csid" name="cseid">
+                <option value="0"></option>
+                {{#modulelist}}
+                    <option value="{{cid}}" {{selt}}>{{title}}</option>
+                {{/modulelist}}
+        </select>
+    </fieldset>
+    <fieldset>
+        <input type="submit" id="submit" name="submit" class="btn btn-primary"
+               value="{{#str}}apply, local_cwk_add_files_mgr{{/str}}" style="display: inline; background-color: #297f80; color: #fff;">
+    </fieldset>
+</form>
