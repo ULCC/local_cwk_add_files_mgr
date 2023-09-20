@@ -133,7 +133,7 @@ switch ($tab) {
                         if (!empty($cidctx)) {
                             $newcontextid = $cidctx[1];
                             $newcourseid = $cidctx[0];
-                            $newfilename = $cidctk[2];
+                            $newfilename = $cidctx[2];
                             // Check if any of the files exist for that coursework instance.
                             if ($fileexist = $fs->get_file($newcontextid, 'mod_coursework',
                                     'introattachment', 0, '/', $newfilename)) {
