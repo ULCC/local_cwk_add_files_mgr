@@ -7,12 +7,16 @@ Users need addfiles but can also have delete files capability to delete files. I
 The dashboard is a tabbed interface. With addfiles capability the user will see the 'Add files' tab and if also has deletefiles capability, will also see the Delete files tab.
 
 # Settings
-There is one setting where site admin can set a file upload limit.
+There is one setting where site admin can set a file upload limit. </br>
+21/07/2025 changes </br>
+extra settings:</br>
+**Group identifier**: group name or idnumber </br>
+**File name delimiter**: - or ^
 
 # Add files tab
 Users can upload individual files or a zip file (need to unzip in the UI). These files naming convention should be as follows:
-[NAME_OF_GROUP_CWK_RESTRICTED_TO]-[Name_of_the_file.pdf] 
-The hyphen (-) is used to explode the uploaded filename into group name and displayed filename.
+[GROUP IDENTIFIER]{delimiter}[Name_of_the_file.pdf] 
+The {delimiter} (- or ^) is used to explode the uploaded filename into group name and displayed filename.
 Once an uploaded file is validated where the group is part of the restriction set for a coursework module, it will store the filename in the context of the coursework module, the cwk component and introattachment filearea.
 This will result in the file being added to the additional files area for that cwk module.
 

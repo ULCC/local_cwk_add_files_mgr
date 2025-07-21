@@ -66,12 +66,14 @@ function local_cwk_add_files_mgr_myprofile_navigation(core_user\output\myprofile
  */
 function get_context_and_course_from_filename($filename) {
     global $DB;
-    $ex = explode('-', $filename);
+    $groupseparator = get_config('local_cwk_add_files_mgr', 'groupseparator');
+    $groupidentifier = get_config('local_cwk_add_files_mgr', 'groupidentifier');
+    $ex = explode($groupseparator, $filename);
     $grpname = $ex[0];
     $newfilename = $ex[1];
     if ($grpname && $newfilename) {
         // Get the group id with this name.
-        if ($group = $DB->get_record('groups', ['name' => $grpname], 'id,courseid', IGNORE_MULTIPLE)) {
+        if ($group = $DB->get_record('groups', [$groupidentifier => $grpname], 'id,courseid', IGNORE_MULTIPLE)) {
             $moduleid = $DB->get_field('modules', 'id', ['name' => 'coursework']);
             $sql = "SELECT id 
                 FROM {course_modules} 
